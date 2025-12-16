@@ -1852,6 +1852,70 @@ with col2:
                 # Not in cache, proceed with API call
                 st.session_state.processing = True
                 st.session_state.current_cache_key = cache_key
+
+# ===============================
+# DISPLAY CACHED ANSWER - FIXED VERSION
+# ===============================
+if st.session_state.get('show_cached_answer') and st.session_state.get('cached_answer_data'):
+    st.markdown("---")
+    
+    cached_data = st.session_state.cached_answer_data
+    
+    # User question
+    st.markdown(f"""
+    <div style="margin-bottom: 1rem;">
+        <div style="display: flex; justify-content: flex-end; margin-bottom: 0.3rem;">
+            <div class="user-bubble">
+                <div style="font-weight: 600; margin-bottom: 0.2rem;">👤 আপুনি:</div>
+                <div>{question[:200]}{'...' if len(question) > 200 else ''}</div>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Cached answer with indicator
+    cache_source = "Memory" if st.session_state.current_cache_key in st.session_state.cache_manager.memory_cache else "Supabase"
+    
+    st.markdown(f"""
+    <div style="margin-bottom: 0.5rem;">
+        <div style="display: flex; align-items: flex-start; margin-bottom: 0.3rem;">
+            <div style="margin-right: 0.5rem; font-size: 1.2rem;">🤖</div>
+            <div style="flex: 1;">
+                <div class="ai-bubble">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid #4CAF50;">
+                        <div style="display: flex; align-items: center;">
+                            <div style="background: #4CAF50; color: white; padding: 0.2rem 0.5rem; border-radius: 8px; 
+                                        font-weight: 600; font-size: 0.8rem; margin-right: 0.5rem;">
+                                <span style="margin-right: 0.3rem;">⚡</span> Cached Answer
+                            </div>
+                            <div style="font-weight: 600; color: #0d47a1; font-size: 0.9rem;">
+                                {cached_data.get('subject', selected_subject)} • {cached_data.get('chapter', current_chapter_name)}
+                            </div>
+                        </div>
+                        <div style="font-size: 0.75rem; color: #666; background: #f1f8e9; padding: 0.2rem 0.5rem; border-radius: 4px;">
+                            <span style="margin-right: 0.3rem;">💾</span> From {cache_source}
+                        </div>
+                    </div>
+                    <div style="color: #333; line-height: 1.5; font-size: 0.95rem;">
+                        {cached_data['answer']}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Show token usage
+    if cached_data.get('tokens', 0) > 0:
+        st.caption(f"📊 Original token cost (saved): {cached_data['tokens']:,} tokens")
+    
+    # Reset flag
+    st.session_state.show_cached_answer = False
+    if 'cached_answer_data' in st.session_state:
+        del st.session_state.cached_answer_data
+    if 'current_cache_key' in st.session_state:
+        del st.session_state.current_cache_key
+
 # ===============================
 # PROCESS QUESTION WITH STREAMING
 # ===============================
