@@ -374,6 +374,16 @@ st.markdown("""
         transform: translateY(-1px);
         box-shadow: 0 3px 9px rgba(255, 87, 34, 0.4);
     }
+    
+    .sidebar-section {
+        background: linear-gradient(145deg, #f8f9fa 0%, #e3f2fd 100%);
+        padding: 0.75rem;
+        border-radius: 10px;
+        margin-bottom: 0.75rem;
+        border: 1px solid #bbdefb;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    
     .assamese-highlight {
     background: linear-gradient(120deg, #FFF176 0%, #FFEB3B 100%);
     background-repeat: no-repeat;
@@ -1117,7 +1127,7 @@ SAMPLE_QUESTIONS = {
         ],
         "অধ্যায় ২": [
             "এছিড আৰু ক্ষাৰকৰ মাজৰ প্ৰধান পাৰ্থক্যবোৰ উল্লেখ কৰক।",
-            "ফেনলফথেলিনৰ সৈতে এছিড আৰু ক্ষাৰকৰ বিক্ৰিয়া কেনে হয়?",
+            "ফেনলফথেলিনৰ সৈতে এছিড আৰু ক্ষাৰকৰ বিক্ৰয়া কেনে হয়?",
             "পাকস্থলীত গেছ্ট্ৰিক এছিডৰ পৰিমাণ বাঢ়িলে কি কৰিব লাগে?",
             "কপাৰ চালফেটৰ সৈতে জিংকৰ বিক্ৰয়া দেখুৱাই ৰাসায়নিক সমীকৰণ লিখক।",
             "pH স্কেল কি? ইয়াৰ গুৰুত্ব লিখক।"
@@ -1126,7 +1136,7 @@ SAMPLE_QUESTIONS = {
             "ধাতু আৰু অধাতুৰ মাজৰ প্ৰধান পাৰ্থক্যবোৰ উল্লেখ কৰক।",
             "ধাতুবোৰ বিদ্যুৎৰ সুপৰিবাহী কিয়?",
             "ধাতুৰ মলিয়ন কাক বোলে? ইয়াক কেনেকৈ প্ৰতিৰোধ কৰিব পাৰি?",
-            "অধাতুৰ প্ৰধান ধৰ্মবোৰ লিখক।",
+            "অধাতুৰ প্ৰধান ধৰম্বোৰ লিখক।",
             "লোৰ ওপৰত জিংকৰ প্ৰলেপ দিয়া প্ৰক্ৰিয়াটো ব্যাখ্যা কৰক।"
         ],
         "অধ্যায় ৪": [
@@ -1266,7 +1276,7 @@ SAMPLE_QUESTIONS = {
             "উদ্যোগিক দূষণ ৰোধ কৰাৰ উপায়বোৰ লিখক。"
         ],
         "অধ্যায় ৭": [
-            "ভাৰতীয় অৰ্থনীতিৰ প্ৰধান সমস্যাসমূহ আলোচনা কৰক।",
+            "ভাৰতীয় অৰ্থনীতিৰ প্ৰধান সমস্যাসমূহ আলোচনা কৰক。",
             "মুদ্ৰাস্ফীতিৰ কাৰণ আৰু প্ৰভাৱ লিখক。",
             "বিত্তীয় ঘাটিৰ অৰ্থ লিখক。",
             "ৰপ্তানি আৰু আমদানিৰ মাজৰ পাৰ্থক্য লিখক。",
@@ -1415,7 +1425,7 @@ SAMPLE_QUESTIONS = {
             "অসমৰ লোক-সংস্কৃতিৰ বৈশিষ্ট্যসমূহ বৰ্ণনা কৰক।",
             "অসমৰ লোক-সংগীতৰ প্ৰকাৰবোৰৰ নাম লিখক।",
             "অসমৰ লোক-নৃত্যৰ বৈচিত্ৰ্য বৰ্ণনা কৰক।",
-            "অসমীয়া লোক-কথাৰ বৈশিষ্ট্য লিখক。",
+            "অসমীয়া লোক-কথাৰ বৈশিষ্ট্য লিখক।",
             "লোক-সংস্কৃতি সংৰক্ষণৰ গুৰুত্ব লিখক।"
         ],
         "পাঠ ৭": [
@@ -1427,14 +1437,14 @@ SAMPLE_QUESTIONS = {
         ],
         "পাঠ ৮": [
             "বহাগ বিহুৰ সামাজিক আৰু সাংস্কৃতিক গুৰুত্ব লিখক।",
-            "বহাগ বিহু উদযাপনৰ পৰম্পৰাগত ৰীতি-নীতিবোৰ বৰ্ণনা কৰক。",
-            "বিহু গীতৰ বিষয়বস্তু আৰু বৈশিষ্ট্য লিখক。",
+            "বহাগ বিহু উদযাপনৰ পৰম্পৰাগত ৰীতি-নীতিবোৰ বৰ্ণনা কৰক।",
+            "বিহু গীতৰ বিষয়বস্তু আৰু বৈশিষ্ট্য লিখক।",
             "বিহু নৃত্যৰ বিভিন্ন ৰূপবোৰৰ বৰ্ণনা দিয়ক।",
             "বিহুৰ ঐতিহ্য সংৰক্ষণৰ গুৰুত্ব লিখক।"
         ],
         "পাঠ ৯": [
             "মহাপুৰুষীয়া ধৰ্মৰ মূল নীতিবোৰ কি?",
-            "শংকৰদেৱ আৰু মাধৱদেৱৰ ধৰ্মীয় অৱদান আলোচনা কৰক。",
+            "শংকৰদেৱ আৰু মাধৱদেৱৰ ধৰ্মীয় অৱদান আলোচনা কৰক।",
             "মহাপুৰুষীয়া ধৰ্মত নাম-ধৰ্মৰ গুৰুত্ব লিখক।",
             "একশৰণ ধৰ্মৰ মূল তত্ত্ববোৰ ব্যাখ্যা কৰক।",
             "মহাপুৰুষীয়া ধৰ্মৰ প্ৰচাৰৰ বাবে কি কৰা হৈছিল?"
@@ -1486,7 +1496,7 @@ SAMPLE_QUESTIONS = {
         ],
         "पाठ ६": [
             "मधुर-मधुर मेरे दीपक जल कविता की व्याख्या कीजिए।",
-            "महादेवी वर्मा की कविता 'मधुर-मধुर मेरे दीপक जल' का सार लिखिए।",
+            "महादेवी वर्मा की कविता 'मधुर-मधुर मेरे दीपक जल' का सार लिखिए।",
             "कविता में दीपक किसका प्रतीक है?",
             "महादेवी वर्मा की काव्य शैली की विशेषताएँ बताइए।",
             "कविता से हमें क्या संदेश मिलता है?"
@@ -1522,7 +1532,7 @@ SAMPLE_QUESTIONS = {
     }
 }
 
- # ===============================
+# ===============================
 # STYLED DROPDOWN SELECTOR
 # ===============================
 st.markdown("""
@@ -1776,12 +1786,6 @@ if not api_key:
     ```
     """)
 
-# Show Supabase status
-if not os.environ.get("SUPABASE_URL") and not os.environ.get("SUPABASE_KEY"):
-    with st.sidebar:
-        st.warning("⚠️ **Supabase Not Configured**")
-        st.caption("Add `SUPABASE_URL` and `SUPABASE_KEY` in secrets for multi-user cache")
-
 # ===============================
 # CACHE CHECK AND SUBMIT BUTTON - FIXED VERSION
 # ===============================
@@ -1850,34 +1854,6 @@ with col2:
                 st.session_state.current_cache_key = cache_key
 
 # ===============================
-# CACHE DEBUG PANEL (Optional)
-# ===============================
-with st.sidebar:
-    if st.checkbox("🔧 Show Cache Debug", value=st.session_state.cache_debug):
-        st.session_state.cache_debug = True
-        st.markdown("#### 🔍 Cache Debug")
-        
-        cache_stats = st.session_state.cache_manager.get_stats()
-        st.write(f"**Supabase Connected:** {cache_stats['supabase_connected']}")
-        st.write(f"**Supabase Entries:** {cache_stats['supabase_entries']}")
-        st.write(f"**Memory Entries:** {cache_stats['memory_entries']}")
-        
-        if cache_stats['supabase_connected'] and cache_stats['supabase_entries'] > 0:
-            try:
-                # Show some sample cache entries
-                sample = st.session_state.cache_manager.supabase.table("seba_cache") \
-                    .select("question, subject, chapter, created_at") \
-                    .limit(5) \
-                    .execute()
-                
-                if sample.data:
-                    st.write("**Sample Cache Entries:**")
-                    for i, item in enumerate(sample.data, 1):
-                        st.write(f"{i}. {item['question'][:30]}... ({item['subject']})")
-            except Exception as e:
-                st.write(f"Error: {e}")
-
-# ===============================
 # DISPLAY CACHED ANSWER - FIXED VERSION
 # ===============================
 if st.session_state.get('show_cached_answer') and st.session_state.get('cached_answer_data'):
@@ -1928,65 +1904,6 @@ if st.session_state.get('show_cached_answer') and st.session_state.get('cached_a
         </div>
     </div>
     """, unsafe_allow_html=True)
-    
-    # Show cache info
-    with st.expander("📊 Cache Information"):
-        cache_stats = st.session_state.cache_manager.get_stats()
-        estimated_cost = cached_data.get('tokens', 0) * 0.0000014
-        
-        col1, col2 = st.columns(2)
-        with col1:
-            st.metric("Tokens Saved", f"{cached_data.get('tokens', 0):,}")
-            st.metric("Cache Source", cache_source)
-        
-        with col2:
-            st.metric("Access Count", cached_data.get('access_count', 1))
-            st.metric("Cost Saved", f"${estimated_cost:.6f}")
-        
-        st.info(f"""
-        **Cache Benefits:**
-        - ⚡ Instant response (no API call needed)
-        - 💰 No token cost for this query
-        - 🌿 Environmentally friendly (reduces API calls)
-        - 🔄 Available for all users
-        
-        **Cache Storage:**
-        - Mode: {cache_stats['storage_mode']}
-        - Total cached entries: {cache_stats['total_entries']}
-        - Total tokens saved: {cache_stats['total_saved_tokens']:,}
-        - Cache TTL: {cache_stats['ttl_days']} days
-        """)
-        
-        # Cache management buttons
-        st.markdown("---")
-        st.markdown("#### 🛠️ Cache Management")
-        
-        col1, col2 = st.columns(2)
-        with col1:
-            if st.button("🗑️ Clear This Cache", use_container_width=True, type="secondary"):
-                if st.session_state.current_cache_key in st.session_state.cache_manager.memory_cache:
-                    del st.session_state.cache_manager.memory_cache[st.session_state.current_cache_key]
-                
-                # Also delete from Supabase if connected
-                if st.session_state.cache_manager.supabase:
-                    try:
-                        st.session_state.cache_manager.supabase.table("seba_cache") \
-                            .delete() \
-                            .eq("key_hash", st.session_state.current_cache_key) \
-                            .execute()
-                    except:
-                        pass
-                
-                st.success("✅ Cache entry cleared!")
-                st.session_state.show_cached_answer = False
-                st.rerun()
-        
-        with col2:
-            if st.button("🧹 Clear All Cache", use_container_width=True, type="secondary"):
-                st.session_state.cache_manager.clear_all()
-                st.success("✅ All cache cleared!")
-                st.session_state.show_cached_answer = False
-                st.rerun()
     
     # Show token usage
     if cached_data.get('tokens', 0) > 0:
@@ -2091,6 +2008,7 @@ if st.session_state.history:
             st.write(f"**ট'কেন:** {item.get('tokens', 0):,}")
             if item.get('cached'):
                 st.caption(f"⚡ This answer was served from {item.get('cache_source', 'cache')}")
+
 # ===============================
 # FOOTER
 # ===============================
