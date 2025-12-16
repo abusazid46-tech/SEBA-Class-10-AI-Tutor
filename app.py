@@ -374,16 +374,6 @@ st.markdown("""
         transform: translateY(-1px);
         box-shadow: 0 3px 9px rgba(255, 87, 34, 0.4);
     }
-    
-    .sidebar-section {
-        background: linear-gradient(145deg, #f8f9fa 0%, #e3f2fd 100%);
-        padding: 0.75rem;
-        border-radius: 10px;
-        margin-bottom: 0.75rem;
-        border: 1px solid #bbdefb;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    }
-    
     .assamese-highlight {
     background: linear-gradient(120deg, #FFF176 0%, #FFEB3B 100%);
     background-repeat: no-repeat;
@@ -2101,104 +2091,6 @@ if st.session_state.history:
             st.write(f"**ট'কেন:** {item.get('tokens', 0):,}")
             if item.get('cached'):
                 st.caption(f"⚡ This answer was served from {item.get('cache_source', 'cache')}")
-
-# ===============================
-# CACHE STATISTICS SIDEBAR
-# ===============================
-with st.sidebar:
-    st.markdown("---")
-    st.markdown("#### 💾 Cache Statistics")
-    
-    cache_stats = st.session_state.cache_manager.get_stats()
-    
-    # Show connection status
-    if cache_stats['supabase_connected']:
-        st.success("✅ Connected to Supabase")
-        st.caption(f"🔗 **Storage:** {cache_stats['storage_mode']}")
-    else:
-        st.warning("⚠️ Memory Cache Only")
-        st.caption("🔗 **Storage:** Memory Only (Supabase not configured)")
-    
-    if cache_stats['total_entries'] > 0:
-        # Cache stats metrics
-        col1, col2 = st.columns(2)
-        with col1:
-            st.metric("Total Entries", cache_stats['total_entries'])
-            if cache_stats['supabase_connected']:
-                st.metric("Supabase", cache_stats['supabase_entries'])
-        
-        with col2:
-            st.metric("Memory", cache_stats['memory_entries'])
-            estimated_savings = cache_stats['total_saved_tokens'] * 0.0000014
-            st.metric("💰 Savings", f"${estimated_savings:.4f}")
-        
-        # Cost savings breakdown
-        with st.expander("📈 Savings Details"):
-            st.write(f"**Total tokens saved:** {cache_stats['total_saved_tokens']:,}")
-            st.write(f"**Estimated cost savings:** ${estimated_savings:.6f}")
-            st.write(f"**Average per entry:** {cache_stats['total_saved_tokens'] // max(1, cache_stats['total_entries']):,} tokens")
-            st.write(f"**Cache TTL:** {cache_stats['ttl_days']} days")
-        
-        # Cache management
-        st.markdown("#### 🛠️ Cache Management")
-        
-        col1, col2 = st.columns(2)
-        with col1:
-            if st.button("🗑️ Clear Expired", use_container_width=True):
-                cleared = st.session_state.cache_manager.clear_expired()
-                if cleared > 0:
-                    st.success(f"Cleared {cleared} expired entries!")
-                else:
-                    st.info("No expired entries found")
-                st.rerun()
-        
-        with col2:
-            if st.button("🧹 Clear All", use_container_width=True, 
-                        help="Clear memory cache and old Supabase entries"):
-                st.session_state.cache_manager.clear_all()
-                st.success("Cache cleared successfully!")
-                st.rerun()
-        
-        # Supabase setup guide
-        if not cache_stats['supabase_connected']:
-            with st.expander("🚀 Enable Supabase Cache (Multi-User)"):
-                st.markdown("""
-                **Benefits:**
-                - ✅ Cache shared across ALL users
-                - ✅ Persistent storage (7 days)
-                - ✅ No data loss on app restart
-                
-                **Setup:**
-                1. **Create Supabase account** at [supabase.com](https://supabase.com)
-                2. **Create new project** and get URL + anon key
-                3. **Add to Hugging Face Secrets:**
-                   - `SUPABASE_URL` = your-project-url
-                   - `SUPABASE_KEY` = your-anon-key
-                4. **Create table** (SQL below)
-                
-                **SQL for cache table:**
-                ```sql
-                CREATE TABLE seba_cache (
-                    key_hash VARCHAR(64) PRIMARY KEY,
-                    question TEXT,
-                    answer TEXT,
-                    subject VARCHAR(100),
-                    chapter VARCHAR(100),
-                    tokens INTEGER DEFAULT 0,
-                    created_at TIMESTAMP DEFAULT NOW(),
-                    last_accessed TIMESTAMP DEFAULT NOW(),
-                    access_count INTEGER DEFAULT 1
-                );
-                ```
-                """)
-    else:
-        st.info("Cache is empty. Ask some questions to build cache!")
-        
-        if not cache_stats['supabase_connected']:
-            st.markdown("---")
-            st.markdown("#### 🚀 Upgrade to Multi-User Cache")
-            st.caption("Enable Supabase to share cache across all users")
-
 # ===============================
 # FOOTER
 # ===============================
