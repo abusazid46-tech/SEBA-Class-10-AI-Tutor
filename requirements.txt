@@ -1,8 +1,8 @@
-# Example requirements.txt
-streamlit>=1.28.0
-torch
-transformers
-pillow
-pandas
-numpy
-requests
+streamlit==1.29.0
+requests==2.31.0
+pandas>=2.0.0
+numpy>=1.24.0
+plotly>=5.17.0
+streamlit-option-menu>=0.3.0
+supabase>=2.3.0
+python-dotenv>=1.0.0
