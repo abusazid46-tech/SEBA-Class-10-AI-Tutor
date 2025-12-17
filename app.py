@@ -1810,16 +1810,11 @@ with col2:
             # Get cache stats for debugging
             cache_stats = st.session_state.cache_manager.get_stats()
             
-            # Check if we should show debug info
-            if cache_stats['supabase_connected']:
-                st.toast(f"🔍 Checking Supabase cache ({cache_stats['supabase_entries']} entries)", icon="🔍")
-            
             cached_entry = st.session_state.cache_manager.get(cache_key)
             
             if cached_entry:
                 # Determine cache source
                 cache_source = "Memory" if cache_key in st.session_state.cache_manager.memory_cache else "Supabase"
-                st.toast(f"🎯 Cache hit from {cache_source}!", icon="⚡")
                 
                 # Load from cache
                 st.session_state.last_answer = cached_entry['answer']
@@ -1843,16 +1838,9 @@ with col2:
                 st.session_state.current_cache_key = cache_key
                 st.session_state.processing = False
             else:
-                # Cache miss
-                if cache_stats['supabase_connected']:
-                    st.toast("❌ Cache miss - calling API...", icon="🤖")
-                else:
-                    st.toast("🤖 Calling DeepSeek API...", icon="🤖")
-                
                 # Not in cache, proceed with API call
                 st.session_state.processing = True
                 st.session_state.current_cache_key = cache_key
-
 # ===============================
 # DISPLAY CACHED ANSWER - FIXED VERSION
 # ===============================
