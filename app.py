@@ -1812,14 +1812,13 @@ with col2:
             
             # Check if we should show debug info
             if cache_stats['supabase_connected']:
-                st.toast(f"🔍 Checking Supabase cache ({cache_stats['supabase_entries']} entries)", icon="🔍")
             
             cached_entry = st.session_state.cache_manager.get(cache_key)
             
             if cached_entry:
                 # Determine cache source
                 cache_source = "Memory" if cache_key in st.session_state.cache_manager.memory_cache else "Supabase"
-                st.toast(f"🎯 Cache hit from {cache_source}!", icon="⚡")
+    
                 
                 # Load from cache
                 st.session_state.last_answer = cached_entry['answer']
